@@ -11,8 +11,7 @@
     <title>ONG Conecta Brasil</title>
 
     <link rel="stylesheet" href="css/style.css">
-
-    <script src="js/script.js" defer></script>
+    
 </head>
 
 <body>
@@ -21,20 +20,27 @@
         <div class="container">
             <a href="index.html" class="logo">ONG Conecta</a>
             <nav class="main-nav" id="main-nav">
-                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false"
-                    aria-controls="main-menu">
+
+                <input type="checkbox" id="menu-toggle-cb" class="menu-toggle-cb" role="button" aria-label="Abrir menu">
+
+                <label for="menu-toggle-cb" class="menu-toggle-label">
                     <span></span>
                     <span></span>
                     <span></span>
-                </button>
+                </label>
+
                 <ul id="main-menu">
                     <li><a href="index.html">Início</a></li>
 
                     <li class="nav-item-dropdown">
-                        <a href="index.html#sobre" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-                            Sobre
+                        <a href="index.html#sobre">Sobre</a>
+
+                        <input type="checkbox" id="dropdown-toggle-cb" class="dropdown-toggle-cb" role="button"
+                            aria-label="Abrir submenu sobre">
+                        <label for="dropdown-toggle-cb" class="dropdown-toggle-label">
                             <span class="dropdown-arrow"></span>
-                        </a>
+                        </label>
+
                         <ul class="dropdown-menu">
                             <li><a href="index.html#sobre">Missão e Valores</a></li>
                             <li><a href="#contato">Informações de Contato</a></li>
