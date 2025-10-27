@@ -1,0 +1,70 @@
+/* 3. SISTEMA DE LAYOUT (GRID & CONTAINER) */
+
+.container {
+    width: 90%;
+    /* Usamos a variável de breakpoint para o nosso 'max-width' */
+    max-width: var(--bp-xl); /* 1200px */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Sistema de Grid (12 Colunas) --- */
+/* "leiaute principal usando CSS grid" */
+
+.grid {
+    display: grid;
+    /* Usamos a variável de espaçamento para o "gap" */
+    gap: var(--space-3); /* 24px */
+}
+
+/* Mobile-first:
+   Por defeito, o grid é de 1 coluna (tudo empilhado) 
+   Não precisamos de escrever, pois é o comportamento padrão.
+*/
+
+
+/* --- 5 Breakpoints Responsivos (Aqui usamos 4) --- */
+
+/* Small (sm) - 576px */
+@media (min-width: var(--bp-sm)) {
+    /* (Aqui poderíamos ter classes .col-sm-*) */
+}
+
+/* Medium (md) - 768px */
+@media (min-width: var(--bp-md)) {
+    /* Aqui ativamos o grid de 12 colunas */
+    .grid {
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    /* Classes de span para ecrãs médios e acima */
+    .col-md-3 { grid-column: span 3; }
+    .col-md-4 { grid-column: span 4; }
+    .col-md-6 { grid-column: span 6; }
+    .col-md-8 { grid-column: span 8; }
+    .col-md-12 { grid-column: span 12; }
+}
+
+/* Large (lg) - 992px */
+@media (min-width: var(--bp-lg)) {
+    /* (Aqui poderíamos ter classes .col-lg-* para mais controlo) */
+    /* Ex: .col-lg-4 { grid-column: span 4; } */
+}
+
+/* Extra Large (xl) - 1200px */
+@media (min-width: var(--bp-xl)) {
+    /* (Classes .col-xl-*) */
+}
+
+
+/* --- Utilitários de Flexbox --- */
+/* (Req: "Utilizar flexbox para componentes internos e alinhamentos") */
+
+.d-flex {
+    display: flex;
+}
+.flex-space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -1,0 +1,134 @@
+/* 5. COMPONENTES REUTILIZÁVEIS */
+
+/* --- Sistema de Botões (Req: estados visuais) --- */
+.btn-primary,
+.btn-secondary {
+    display: inline-block;
+    padding: var(--space-2) var(--space-3); /* 16px 24px */
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Botão Primário (Ação principal) */
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-neutral-white);
+}
+
+/* Estados Visuais (hover, focus, active) */
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-neutral-white);
+    transform: scale(1.03);
+    text-decoration: none;
+}
+.btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.4); /* Foco acessível */
+}
+.btn-primary:active {
+    transform: scale(0.98); /* Efeito de clique */
+}
+
+/* Botão Secundário */
+.btn-secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-neutral-white);
+}
+.btn-secondary:hover {
+    background-color: #1e7e34; /* Um verde mais escuro */
+    color: var(--color-neutral-white);
+    transform: scale(1.03);
+    text-decoration: none;
+}
+.btn-secondary:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.4);
+}
+
+/* Estado Desabilitado (Exemplo) */
+.btn-primary:disabled,
+.btn-secondary:disabled {
+    background-color: var(--color-neutral-medium);
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* --- Sistema de Cards (Req: responsivo) --- */
+.project-card {
+    background: var(--color-neutral-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    overflow: hidden; /* Garante que a imagem não saia do card */
+    
+    /* Usando Flexbox para organizar o conteúdo interno */
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Faz todos os cards terem a mesma altura no grid */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover; /* Garante que a imagem cubra o espaço */
+}
+
+/* Corpo do card (onde o texto fica) */
+.card-body {
+    padding: var(--space-3); /* 24px */
+    /* Flex-grow faz o corpo crescer e empurrar o rodapé */
+    flex-grow: 1; 
+}
+.card-body h3 {
+    font-size: 1.3rem;
+    color: var(--color-primary-dark);
+}
+.card-body p {
+    font-size: var(--font-size-sm); /* 14px */
+    margin-bottom: var(--space-2);
+}
+
+/* Rodapé do card (para link e tags) */
+.card-footer {
+    padding: 0 var(--space-3) var(--space-3); /* 0 24px 24px */
+    border-top: 1px solid var(--color-neutral-light);
+    padding-top: var(--space-2);
+}
+.card-footer a {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-secondary);
+}
+
+/* --- Badges e Tags (Req: sistema de badges) --- */
+.tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem; /* 4px 12px */
+    font-size: var(--font-size-xs); /* 12px */
+    font-weight: var(--font-weight-semibold);
+    border-radius: 20px;
+    margin-bottom: var(--space-1); /* 8px */
+}
+.tag-education {
+    background-color: rgba(0, 123, 255, 0.1);
+    color: var(--color-primary-dark);
+}
+.tag-health {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: var(--color-secondary);
+}
+.tag-environment {
+    background-color: rgba(255, 193, 7, 0.1);
+    color: #856404; /* Amarelo escuro */
+}

@@ -1,0 +1,19 @@
+/* ARQUIVO PRINCIPAL DE IMPORTAÇÃO */
+
+/* 1. Sistema de Design (Variáveis, Fontes) */
+@import url('modules/_1-design-system.css');
+
+/* 2. Estilos de Base (Reset, Body) */
+@import url('modules/_2-base.css');
+
+/* 3. Layout (Container, Grid) */
+@import url('modules/_3-layout.css');
+
+/* 4. Navegação (Header, Footer) */
+@import url('modules/_4-navigation.css');
+
+/* 5. Componentes (Botões, Cards) */
+@import url('modules/_5-components.css');
+
+/* 6. Estilos Específicos de Páginas (Formulário) */
+@import url('modules/_6-pages.css');

@@ -1,0 +1,126 @@
+/* 6. ESTILOS ESPECÍFICOS DE PÁGINAS */
+
+/* --- Página Home: Seção Hero --- */
+.hero {
+    background-color: var(--color-neutral-dark);
+    /* Exemplo de fundo com gradiente e imagem */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1500x800');
+    background-size: cover;
+    background-position: center;
+    color: var(--color-neutral-white);
+    
+    padding: var(--space-6) 0; /* 64px */
+    text-align: center;
+}
+.hero h1 {
+    color: var(--color-neutral-white);
+    font-size: 2.8rem;
+}
+.hero p {
+    font-size: var(--font-size-lg); /* 24px */
+    margin-bottom: var(--space-3); /* 24px */
+}
+@media (min-width: var(--bp-md)) {
+    .hero h1 { font-size: 3.5rem; }
+}
+
+/* --- Página Home: Seção "Sobre" --- */
+.about {
+    background-color: var(--color-neutral-light);
+}
+
+/* --- Página Projetos: Seção "Doar" --- */
+.donate {
+    background-color: var(--color-neutral-light);
+}
+.donate-options article {
+    background: var(--color-neutral-white);
+    padding: var(--space-3);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* --- Página Cadastro: Formulário (Req: estilizado e validação) --- */
+.form-section {
+    background-color: var(--color-neutral-light);
+}
+
+.main-form {
+    max-width: 800px;
+    margin: var(--space-3) auto 0;
+    background: var(--color-neutral-white);
+    padding: var(--space-4); /* 32px */
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.main-form fieldset {
+    border: none;
+    padding: 0;
+    margin-bottom: var(--space-3); /* 24px */
+}
+
+.main-form legend {
+    font-weight: var(--font-weight-bold);
+    font-size: 1.75rem;
+    color: var(--color-primary-dark);
+    margin-bottom: var(--space-3);
+    border-bottom: 2px solid var(--color-primary-light);
+    padding-bottom: var(--space-1);
+}
+
+.form-group {
+    margin-bottom: var(--space-2); /* 16px */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--space-1); /* 8px */
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-neutral-dark);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"] {
+    width: 100%;
+    padding: var(--space-2); /* 16px */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-md);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Validação Visual (Req: feedback visual) */
+.form-group input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+/* Exemplo de validação visual nativa do HTML5 */
+.form-group input:invalid:not(:placeholder-shown) {
+    border-color: #dc3545; /* Vermelho */
+}
+.form-group input:valid:not(:placeholder-shown) {
+    border-color: var(--color-secondary); /* Verde */
+}
+
+/* --- CTA (Call to Action) --- */
+.cta {
+    background-color: var(--color-primary-dark);
+    color: var(--color-neutral-white);
+    text-align: center;
+}
+.cta h2 {
+    color: var(--color-neutral-white);
+}
+.cta .btn-secondary {
+    background-color: var(--color-neutral-white);
+    color: var(--color-primary-dark);
+}
+.cta .btn-secondary:hover {
+    background-color: var(--color-neutral-light);
+}

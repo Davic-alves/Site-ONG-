@@ -1,0 +1,57 @@
+/* 1. SISTEMA DE DESIGN */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    /* --- Paleta de Cores (Req: min 8 cores) --- */
+    /* Primárias */
+    --color-primary: #005A9C;         /* Azul mais escuro (para links, botões) */
+    --color-primary-light: #007BFF;   /* Azul padrão */
+    --color-primary-dark: #004070;    /* Azul para :hover */
+
+    /* Secundárias / Acento */
+    --color-secondary: #28a745;       /* Verde (para botões de "sucesso") */
+    --color-accent: #ffc107;          /* Amarelo (para destaques, tags) */
+
+    /* Neutras (Texto, Fundo) */
+    --color-neutral-dark: #212529;    /* Preto (para títulos) */
+    --color-neutral-medium: #6c757d;  /* Cinza (para texto normal) */
+    --color-neutral-light: #f8f9fa;   /* Cinza claro (para fundos de seção) */
+    --color-neutral-white: #ffffff;   /* Branco */
+
+    /* ... cores primárias, secundárias ... */
+    --color-accent: #ffc107;          /* Amarelo (para destaques, tags) */
+
+    /* NOVA COR DE FEEDBACK */
+    --color-danger: #dc3545;          /* Vermelho (para erros, alertas) */
+
+    /* Neutras (Texto, Fundo) */
+    --color-neutral-dark: #212529;    /* Preto (para títulos) */
+    /* ... resto do arquivo ... */
+
+    /* --- Tipografia (Req: min 5 tamanhos) --- */
+    --font-family-base: 'Poppins', sans-serif;
+    --font-size-xs: 0.75rem;  /* 12px */
+    --font-size-sm: 0.875rem; /* 14px */
+    --font-size-md: 1rem;     /* 16px (base) */
+    --font-size-lg: 1.5rem;   /* 24px */
+    --font-size-xl: 2.25rem;  /* 36px */
+
+    --font-weight-regular: 400;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    
+    /* --- Espaçamento Modular (Req: 8px) --- */
+    --space-1: 0.5rem;  /* 8px */
+    --space-2: 1rem;    /* 16px */
+    --space-3: 1.5rem;  /* 24px */
+    --space-4: 2rem;    /* 32px */
+    --space-5: 3rem;    /* 48px */
+    --space-6: 4rem;    /* 64px */
+
+    /* --- Breakpointss (Req: min 5) --- */
+    --bp-xs: 480px;
+    --bp-sm: 576px;
+    --bp-md: 768px;
+    --bp-lg: 992px;
+    --bp-xl: 1200px;
+}

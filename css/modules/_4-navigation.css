@@ -1,0 +1,234 @@
+/* 4. NAVEGAÇÃO (HEADER, NAV, FOOTER) */
+
+.main-header {
+    background: var(--color-neutral-white);
+    padding: var(--space-2) 0; /* 16px */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Usando flexbox para alinhamento interno */
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.75rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    text-decoration: none;
+}
+.logo:hover {
+    color: var(--color-primary-dark);
+    text-decoration: none;
+}
+
+/* --- Menu Mobile (Padrão) --- */
+.menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex; /* Alterado de 'flex' para 'block' ou 'flex' com 'flex-direction' */
+    flex-direction: column;
+    gap: 5px;
+    padding: var(--space-1);
+    z-index: 1002; /* Acima do menu */
+}
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: var(--color-neutral-dark);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Animação do "X" do menu hambúrguer */
+.main-nav.active .menu-toggle span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+.main-nav.active .menu-toggle span:nth-child(2) {
+    opacity: 0;
+}
+.main-nav.active .menu-toggle span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+
+#main-menu {
+    display: none; /* Escondido por padrão */
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Ocupa a tela inteira */
+    padding-top: var(--space-6); /* 64px */
+    background: var(--color-neutral-white);
+    text-align: center;
+    z-index: 1001; /* Abaixo do botão */
+}
+
+/* Classe .active adicionada via JS */
+.main-nav.active #main-menu {
+    display: flex;
+}
+
+#main-menu li {
+    width: 100%;
+}
+
+#main-menu a {
+    display: block;
+    padding: var(--space-2) var(--space-3); /* 16px 24px */
+    font-size: var(--font-size-lg); /* 24px */
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-neutral-dark);
+    text-decoration: none;
+}
+
+/* --- Dropdown (Mobile) --- */
+.dropdown-menu {
+    display: none; /* Escondido por padrão */
+    background: var(--color-neutral-light);
+}
+
+.nav-item-dropdown.active .dropdown-menu {
+    display: block; /* Exibido via JS */
+}
+.dropdown-menu a {
+    font-size: var(--font-size-md); /* 16px */
+    font-weight: var(--font-weight-regular);
+    color: var(--color-primary-dark);
+}
+.dropdown-arrow {
+    display: inline-block;
+    border: solid var(--color-neutral-dark);
+    border-width: 0 2px 2px 0;
+    padding: 3px;
+    margin-left: var(--space-1);
+    transform: rotate(45deg); /* Seta para baixo */
+    transition: transform 0.2s ease;
+}
+.nav-item-dropdown.active .dropdown-arrow {
+    transform: rotate(-135deg); /* Seta para cima */
+}
+
+
+/* --- Menu Desktop (Breakpoint 768px) --- */
+@media (min-width: var(--bp-md)) {
+    .menu-toggle {
+        display: none; /* Esconde o botão hambúrguer */
+    }
+
+    #main-menu {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        width: auto;
+        height: auto;
+        padding-top: 0;
+        background: none;
+        align-items: center; /* Alinha os itens verticalmente */
+        gap: var(--space-2); /* 16px */
+    }
+
+    #main-menu a {
+        font-size: var(--font-size-md); /* 16px */
+        padding: var(--space-1); /* 8px */
+    }
+
+    #main-menu a:hover {
+        color: var(--color-primary);
+        text-decoration: none;
+    }
+
+    /* --- Dropdown (Desktop) --- */
+    .nav-item-dropdown {
+        position: relative; /* Contexto para o menu absoluto */
+    }
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 220px;
+        background: var(--color-neutral-white);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: var(--space-1) 0; /* 8px 0 */
+        
+        /* Escondido e animado */
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+    }
+
+    .dropdown-menu a {
+        font-size: var(--font-size-sm); /* 14px */
+        font-weight: var(--font-weight-regular);
+        color: var(--color-neutral-medium);
+        padding: var(--space-1) var(--space-2); /* 8px 16px */
+    }
+    .dropdown-menu a:hover {
+        background: var(--color-neutral-light);
+        color: var(--color-primary-dark);
+    }
+
+    /* Exibe no :hover do <li> pai */
+    .nav-item-dropdown:hover .dropdown-menu {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .nav-item-dropdown:hover .dropdown-arrow {
+        transform: rotate(-135deg); /* Seta para cima */
+    }
+}
+
+/* --- Rodapé --- */
+.main-footer {
+    background: var(--color-neutral-dark);
+    color: var(--color-neutral-light);
+    padding: var(--space-5) 0 var(--space-2); /* 48px 0 16px */
+    margin-top: var(--space-5);
+}
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4); /* 32px */
+    margin-bottom: var(--space-4);
+}
+.footer-contact h4, .footer-social h4 {
+    color: var(--color-neutral-white);
+    margin-bottom: var(--space-2);
+}
+.footer-contact a, .footer-social a {
+    color: var(--color-neutral-light);
+    text-decoration: none;
+}
+.footer-contact a:hover {
+    color: var(--color-primary-light);
+    text-decoration: underline;
+}
+.footer-social a {
+    margin-right: var(--space-2);
+}
+.footer-copy {
+    text-align: center;
+    font-size: var(--font-size-sm);
+    color: var(--color-neutral-medium);
+    border-top: 1px solid var(--color-neutral-medium);
+    padding-top: var(--space-3); /* 24px */
+}
+
+/* Grid do rodapé em desktop */
+@media (min-width: var(--bp-md)) {
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
